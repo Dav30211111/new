@@ -3,12 +3,14 @@
 <%@ page import="com.product_order_detail.model.*"%>
 <%@ page import="com.product.model.*"%>
 <%@ page import="java.util.*"%>
+<%-- <%@ page import="org.json.*"%> --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <% 
 	ProductService posvc = new ProductService();	
 	
 	List<ProductVO> povoList = posvc.getAll();
+	/* JSONArray jsarray = new JSONArray(); */
 	pageContext.setAttribute("povoList", povoList);
 %>
 <!DOCTYPE html>

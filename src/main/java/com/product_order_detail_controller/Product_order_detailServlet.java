@@ -363,7 +363,12 @@ public class Product_order_detailServlet extends HttpServlet {
 			Product_order_detailService podsvc = new Product_order_detailService();
 //			HttpSession session = req.getSession();取的會員資料
 //															這個1必須由會員session取得
-			podVO = podsvc.addProductOrderDetail(productId, 1, amounts, 0, 0); // 一定是信用卡+已付款 0, 0的訂單
+//			podVO = podsvc.addProductOrderDetail(productId, 1, amounts, 0, 0); // 一定是信用卡+已付款 0, 0的訂單
+			podVO.setProduct_id(productId);
+			podVO.setMember_id(1); // session會員
+			podVO.setProduct_amount(amounts);
+			podVO.setOrder_status(0); //已付款
+			podVO.setPayment_method(0); //信用卡
 			
 			List<PolVO> polVOlist = new ArrayList<PolVO>();
 			PolVO polVO = new PolVO(); // 訂單明細
